@@ -12,8 +12,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
-// merubah response jika terjadi error authenticationException
 @Component
 public class AuthEntryPoint implements AuthenticationEntryPoint {
     private final ObjectMapper objectMapper;
@@ -32,7 +30,6 @@ public class AuthEntryPoint implements AuthenticationEntryPoint {
                 .statusCode(HttpStatus.UNAUTHORIZED.value())
                 .build();
 
-        // merubah object menjadi jsonString
         String commonResponseString = objectMapper.writeValueAsString(commonResponse);
 
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);

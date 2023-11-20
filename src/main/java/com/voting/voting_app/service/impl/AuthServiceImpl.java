@@ -112,7 +112,6 @@ public class AuthServiceImpl implements AuthService {
         ));
         SecurityContextHolder.getContext().setAuthentication(authenticate);
 
-        // object AppUser
         AppUser appUser = (AppUser) authenticate.getPrincipal();
         String token = jwtUtil.generateToken(appUser);
 

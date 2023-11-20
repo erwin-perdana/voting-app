@@ -44,21 +44,18 @@ public class AuthTokenFilter extends OncePerRequestFilter {
     }
 
     private void setAuthentication(HttpServletRequest request, String token) {
-        // set authentication ke spring security
         Map<String, String> userInfo = jwtUtil.getUserInfoByToken(token);
 
         UserDetails user = userService.loadUserByUserId(userInfo.get("userId"));
-        // validasi/authentication by token
+
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
                 user,
                 null,
                 user.getAuthorities()
         );
 
-        // menambahkan informasi tambahan berupa alamat IP Address, Host ke bentuk spring security
         authenticationToken.setDetails(new WebAuthenticationDetails(request));
 
-        // menyimpan authentication ke spring security context
         SecurityContextHolder.getContext().setAuthentication(authenticationToken);
     }
 

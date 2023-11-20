@@ -1,5 +1,6 @@
 package com.voting.voting_app.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -7,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Data
@@ -25,4 +27,8 @@ public class Trainee {
     @OneToOne
     @JoinColumn(name = "user_credential_id", unique = true)
     private UserCredential userCredential;
+
+    @OneToMany(mappedBy = "trainee")
+    @JsonManagedReference
+    private List<VotingAnswer> votingAnswers;
 }

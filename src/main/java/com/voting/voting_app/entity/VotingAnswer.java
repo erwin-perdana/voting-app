@@ -1,5 +1,6 @@
 package com.voting.voting_app.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
@@ -24,7 +25,13 @@ public class VotingAnswer {
     @Column(name = "vote_date")
     private LocalDateTime voteDate;
 
-    @OneToOne
-    @JoinColumn(name = "voting_detail_id")
-    private VotingDetail votingDetail;
+    @ManyToOne
+    @JoinColumn(name = "trainee_id")
+    @JsonBackReference
+    private Trainee trainee;
+
+    @ManyToOne
+    @JoinColumn(name = "voting_id")
+    @JsonBackReference
+    private Voting voting;
 }

@@ -31,4 +31,8 @@ public class Voting {
     @OneToMany(mappedBy = "voting")
     @JsonManagedReference
     private List<VotingDetail> votingDetails;
+
+    @OneToMany(mappedBy = "voting")
+    @JsonManagedReference
+    private List<VotingAnswer> votingAnswers;
 }

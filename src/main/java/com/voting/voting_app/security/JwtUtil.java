@@ -19,7 +19,6 @@ import java.util.Map;
 @Component
 @Slf4j
 public class JwtUtil {
-//    private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Value("${app.voting-app.jwt-secret}")
     private String jwtSecret;
     @Value("${app.voting-app.app-name}")
