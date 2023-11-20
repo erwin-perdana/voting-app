@@ -5,11 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class TraineeResponse {
-    private String traineeId;
-    private String name;
+public class VotingResponse {
+    private String votingId;
+    private String votingDate;
+    private List<VotingDetailResponse> votingDetails;
 }

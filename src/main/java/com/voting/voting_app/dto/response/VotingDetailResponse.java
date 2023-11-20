@@ -9,7 +9,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class TraineeResponse {
-    private String traineeId;
+public class VotingDetailResponse {
+    private String votingDetailId;
+    private String votingId;
     private String name;
+    private String description;
 }

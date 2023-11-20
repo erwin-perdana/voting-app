@@ -38,7 +38,7 @@ public class TraineeServiceImpl implements TraineeService {
 
     private TraineeResponse mapToResponse(Trainee trainee) {
         return TraineeResponse.builder()
-                .customerId(trainee.getId())
+                .traineeId(trainee.getId())
                 .name(trainee.getName())
                 .build();
     }
